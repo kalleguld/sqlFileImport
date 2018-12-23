@@ -22,7 +22,7 @@ public static string ImportFiles(string path, string indent)
 {
     StringBuilder sb = new StringBuilder();
 
-    sb.AppendLine(indent + "internal static class " + Path.GetFileName(path));
+    sb.AppendLine(indent + "public static class " + Path.GetFileName(path));
     sb.AppendLine(indent + "{");
 
     foreach (var filePath in Directory.EnumerateFiles(path))
@@ -54,13 +54,7 @@ private static string ToLiteral(string input)
     {
         switch (c)
         {
-            case '\"': literal.Append("\\\""); break;
-            case '\\': literal.Append(@"\\"); break;
-            case '\0': literal.Append(@"\0"); break;
-            case '\a': literal.Append(@"\a"); break;
-            case '\b': literal.Append(@"\b"); break;
-            case '\f': literal.Append(@"\f"); break;
-            case '\v': literal.Append(@"\v"); break;
+            case '\"': literal.Append("\"\""); break;
 			case '\n': literal.Append("\n"); break;
 			case '\r': literal.Append("\r"); break;
 			case '\t': literal.Append("\t"); break;

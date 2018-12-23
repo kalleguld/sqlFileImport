@@ -1,0 +1,1 @@
+﻿declare @emoji nvarchar(max) = '🕶'

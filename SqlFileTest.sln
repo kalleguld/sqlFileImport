@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qlt2", "qlt2\qlt2.csproj", "{A05BDF0B-08B3-4B0B-9E22-BB1EEBBCB150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "qlt2", "qlt2\qlt2.csproj", "{A05BDF0B-08B3-4B0B-9E22-BB1EEBBCB150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{3B43D90D-02C3-4842-92B3-F2E5158D4B28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A05BDF0B-08B3-4B0B-9E22-BB1EEBBCB150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A05BDF0B-08B3-4B0B-9E22-BB1EEBBCB150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A05BDF0B-08B3-4B0B-9E22-BB1EEBBCB150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B43D90D-02C3-4842-92B3-F2E5158D4B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B43D90D-02C3-4842-92B3-F2E5158D4B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B43D90D-02C3-4842-92B3-F2E5158D4B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B43D90D-02C3-4842-92B3-F2E5158D4B28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

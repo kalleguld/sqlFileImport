@@ -1,0 +1,1 @@
+﻿declare @a nvarchar(max) = 'in single quotes';
