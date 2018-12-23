@@ -44,20 +44,29 @@ public static string ImportFiles(string path, string indent)
     sb.AppendLine(indent + "}");
     return sb.ToString();
 }
-        
 
-private static string ToLiteral(string input)
+private static string ToLiteral(string input){
+	if (input.Any(c => c > 0x7e)){
+		return ToLiteralNormal(input);
+	}
+	else {
+		return ToLiteralRaw(input);
+	}
+}
+
+private static string ToLiteralNormal(string input)
 {
     StringBuilder literal = new StringBuilder(input.Length + 3);
-    literal.Append("@\"");
+    literal.Append("\"");
     foreach (var c in input)
     {
         switch (c)
         {
-            case '\"': literal.Append("\"\""); break;
-			case '\n': literal.Append("\n"); break;
-			case '\r': literal.Append("\r"); break;
-			case '\t': literal.Append("\t"); break;
+            case '\"': literal.Append("\\\""); break;
+			case '\0': literal.Append("\\0"); break;
+			case '\n': literal.Append("\\n"); break;
+			case '\r': literal.Append("\\r"); break;
+			case '\t': literal.Append("\\t"); break;
             default:
                 // ASCII printable character
                 if (c >= 0x20 && c <= 0x7e)
@@ -71,6 +80,22 @@ private static string ToLiteral(string input)
                     literal.Append(((int)c).ToString("x4"));
                 }
                 break;
+        }
+    }
+    literal.Append("\"");
+    return literal.ToString();
+}
+
+private static string ToLiteralRaw(string input)
+{
+    StringBuilder literal = new StringBuilder(input.Length + 3);
+    literal.Append("@\"");
+    foreach (var c in input)
+    {
+        switch (c)
+        {
+            case '\"': literal.Append("\"\""); break;
+            default: literal.Append(c); break;
         }
     }
     literal.Append("\"");
